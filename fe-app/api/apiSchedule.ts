@@ -6,7 +6,8 @@ export interface Schedule {
   sourceId?: number;
   subjectName: string;
   subjectCode: string;
-  classroomName: string;
+  className: string; // Added for class name
+  roomName: string; // Added for room name
   startTime: string;
   endTime: string;
   dayOfWeek: number; // 1-7 (Monday-Sunday)
@@ -243,7 +244,8 @@ class ApiScheduleService {
         sourceId: Number(item.id) || undefined,
         subjectName: item.courseName || item.subjectName || '',
         subjectCode: item.subjectCode || '',
-        classroomName: item.roomName || item.classroomName || item.className || '',
+        className: item.className || '',
+        roomName: item.roomName || '',
         startTime: normalizeTime(item.startTime),
         endTime: normalizeTime(item.endTime),
         dayOfWeek: dayOfWeek,
@@ -273,7 +275,9 @@ class ApiScheduleService {
             sourceId: Number(it.id) || undefined,
             subjectName: it.subjectName || it.courseName || '',
             subjectCode: it.subjectCode || '',
-            classroomName: it.classroomName || it.roomName || it.className || '',
+            subjectCode: it.subjectCode || '',
+            className: it.className || '',
+            roomName: it.roomName || '',
             startTime: typeof it.startTime === 'string' ? normalizeTime(it.startTime) : '',
             endTime: typeof it.endTime === 'string' ? normalizeTime(it.endTime) : '',
             dayOfWeek: typeof it.dayOfWeek === 'number' ? it.dayOfWeek : 0,
@@ -307,7 +311,8 @@ class ApiScheduleService {
                   sourceId: Number(item.id) || undefined,
                   subjectName: item.courseName || item.subjectName || '',
                   subjectCode: item.subjectCode || '',
-                  classroomName: item.className || item.classroomName || item.roomName || '',
+                  className: item.className || '',
+                  roomName: item.roomName || '',
                   startTime: normalizeTime(item.startTime),
                   endTime: normalizeTime(item.endTime),
                   dayOfWeek: dow,
