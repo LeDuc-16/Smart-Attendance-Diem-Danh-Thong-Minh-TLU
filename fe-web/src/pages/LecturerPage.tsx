@@ -7,6 +7,7 @@ import {
     updateLecturer,
     deleteLecturer,
     getAllFaculties,
+    checkAccountExists,
 } from "../api/apiLecturer";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -85,22 +86,124 @@ const LecturerFormModal = ({
         setInputError('');
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmitAsync = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.lecturerCode || !formData.name || !formData.facultyId) {
             setInputError("Vui lòng điền đầy đủ thông tin bắt buộc.");
             return;
         }
-        if (!initialData && (!formData.account || !formData.email || !formData.password)) {
-            setInputError("Vui lòng điền đầy đủ thông tin tài khoản.");
+
+        // Kiểm tra định dạng mã giảng viên: GV + 4 số
+        const lecturerCodeRegex = /^GV\d{4}$/;
+        if (!lecturerCodeRegex.test(formData.lecturerCode)) {
+            setInputError("Vui lòng nhập đúng định dạng GV + 4 số (Ví dụ GV2251)");
             return;
         }
+
+        // Kiểm tra định dạng họ và tên: chỉ chứa chữ cái và khoảng trắng
+        const nameRegex = /^[a-zA-ZÀ-ỿ\s]+$/;
+        if (!nameRegex.test(formData.name.trim())) {
+            setInputError("Họ và tên không đúng định dạng. Ví dụ: Hoàng Quang Vinh");
+            return;
+        }
+
+        // Kiểm tra độ dài họ và tên không quá 30 ký tự
+        if (formData.name.length > 30 || formData.name.length < 8) {
+            setInputError("Vui lòng nhập độ dài họ và tên nhỏ hơn 30 ký tự và tối thiểu 8 ký tự");
+            return;
+        }
+
+        if (!initialData && (!formData.account || !formData.email || !formData.password)) {
+            setInputError("Vui lòng điền đầy đủ thông tin bắt buộc.");
+            return;
+        }
+
+        // Kiểm tra định dạng tài khoản: gv + 4 số
+        if (!initialData && formData.account) {
+            // Kiểm tra độ dài tài khoản không quá 30 ký tự
+            if (formData.account.length > 30) {
+                setInputError("Vui lòng nhập độ dài tài khoản nhỏ hơn 30 ký tự");
+                return;
+            }
+
+            const accountRegex = /^gv\d{4}$/;
+            if (!accountRegex.test(formData.account)) {
+                setInputError("Vui lòng nhập đúng định dạng tài khoản gv + 4 số (Ví dụ gv2557)");
+                return;
+            }
+
+            // Kiểm tra tài khoản trùng lặp từ API
+            try {
+                await checkAccountExists(formData.account);
+                // Nếu không throw lỗi, tài khoản đã tồn tại
+                setInputError("Tài khoản đã tồn tại trong hệ thống. Vui lòng chọn tên tài khoản khác.");
+                return;
+            } catch (error: any) {
+                // Nếu throw 404 hoặc lỗi "not found", có nghĩa là tài khoản không tồn tại (hợp lệ)
+                if (error.response?.status !== 404 && error.message !== "Account not found") {
+                }
+            }
+        }
+
+        // Kiểm tra định dạng email
+        if (!initialData && formData.email) {
+            // Kiểm tra độ dài email không quá 30 ký tự
+            if (formData.email.length > 30) {
+                setInputError("Vui lòng nhập độ dài email nhỏ hơn 30 ký tự");
+                return;
+            }
+
+            const emailRegex = /^GV\d{4}@e\.tlu\.edu\.vn$/;
+            if (!emailRegex.test(formData.email)) {
+                setInputError("Vui lòng nhập đúng định dạng email. Ví dụ: (GV + 4 số)@e.tlu.edu.vn");
+                return;
+            }
+
+            // Kiểm tra email trùng lặp từ API
+            try {
+                await checkAccountExists(formData.email);
+                // Nếu không throw lỗi, email đã tồn tại
+                setInputError("Email đã tồn tại trong hệ thống. Vui lòng sử dụng email khác.");
+                return;
+            } catch (error: any) {
+                // Nếu throw 404 hoặc lỗi "not found", có nghĩa là email không tồn tại (hợp lệ)
+                if (error.response?.status !== 404 && error.message !== "Account not found") {
+                    // Nếu là lỗi khác, bỏ qua
+                }
+            }
+        }
+
+        // Kiểm tra độ dài mật khẩu từ 8 đến 30 ký tự
+        if (!initialData && formData.password) {
+            if (formData.password.length < 8 || formData.password.length > 30) {
+                setInputError("Vui lòng nhập độ dài mật khẩu nhỏ hơn 30 ký tự và tối thiểu 8 ký tự");
+                return;
+            }
+
+            // Kiểm tra mật khẩu có chứa khoảng trắng
+            if (/\s/.test(formData.password)) {
+                setInputError("Mật khẩu yêu cầu gồm số, chữ viết hoa, viết thường và ít nhất một ký tự đặc biệt");
+                return;
+            }
+
+            // Kiểm tra mật khẩu có đủ yêu cầu: số, chữ hoa, chữ thường, ký tự đặc biệt
+            const hasNumber = /\d/.test(formData.password);
+            const hasUppercase = /[A-Z]/.test(formData.password);
+            const hasLowercase = /[a-z]/.test(formData.password);
+            const hasSpecialChar = /[@#$!%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(formData.password);
+
+            if (!hasNumber || !hasUppercase || !hasLowercase || !hasSpecialChar) {
+                setInputError("Mật khẩu yêu cầu gồm số, chữ viết hoa, viết thường và ít nhất một ký tự đặc biệt");
+                return;
+            }
+        }
+
         if (!initialData) {
             const duplicateCode = lecturers.some(l =>
                 l.lecturerCode === formData.lecturerCode
             );
             if (duplicateCode) {
-                setInputError("Mã giảng viên đã tồn tại. Vui lòng nhập mã khác.");
+                setInputError("Vui lòng nhập mã giảng viên khác, mã giảng viên vừa nhập hiện đã có giảng viên khác");
                 return;
             }
         } else {
@@ -108,7 +211,7 @@ const LecturerFormModal = ({
                 l.lecturerCode === formData.lecturerCode && l.id !== initialData.id
             );
             if (duplicateCode) {
-                setInputError("Mã giảng viên đã tồn tại. Vui lòng nhập mã khác.");
+                setInputError("Vui lòng nhập mã giảng viên khác, mã giảng viên vừa nhập hiện đã có giảng viên khác");
                 return;
             }
         }
@@ -135,7 +238,7 @@ const LecturerFormModal = ({
                         <FiX size={24} />
                     </button>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmitAsync}>
                     <div className="p-6">
                         <div className="bg-blue-50 p-4 rounded-lg space-y-4">
                             <h4 className="font-semibold">Thông tin giảng viên</h4>
@@ -373,7 +476,7 @@ const LecturerPage = () => {
         console.log('Analyzing server error:', serverMessage);
 
         if (message.includes('account already exists') || message.includes('account') || message.includes('username')) {
-            return 'Tài khoản "gv001" đã tồn tại trong hệ thống. Vui lòng chọn tên tài khoản khác.';
+            return 'Tài khoản đã tồn tại trong hệ thống. Vui lòng chọn tên tài khoản khác.';
         }
 
         if (message.includes('email')) {

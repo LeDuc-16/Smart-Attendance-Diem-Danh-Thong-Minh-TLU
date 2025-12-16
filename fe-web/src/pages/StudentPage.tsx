@@ -725,9 +725,124 @@ const StudentPage = () => {
             }
         }
 
-        if (!editingStudent && !formData.password) {
-            setModalError("Mật khẩu là bắt buộc.");
+        // Kiểm tra định dạng mã sinh viên: SV + 4 số
+        const studentCodeRegex = /^SV\d{4}$/;
+        if (!studentCodeRegex.test(formData.studentCode)) {
+            setModalError("Vui lòng nhập đúng định dạng SV + 4 số (Ví dụ SV2557)");
             return;
+        }
+
+        // Kiểm tra trùng lặp mã sinh viên
+        if (!editingStudent) {
+            const duplicateCode = students.some(s => s.studentCode === formData.studentCode);
+            if (duplicateCode) {
+                setModalError("Vui lòng nhập mã sinh viên khác, mã sinh viên vừa nhập hiện đã có sinh viên khác");
+                return;
+            }
+        } else {
+            const duplicateCode = students.some(s => s.studentCode === formData.studentCode && s.id !== editingStudent.id);
+            if (duplicateCode) {
+                setModalError("Vui lòng nhập mã sinh viên khác, mã sinh viên vừa nhập hiện đã có sinh viên khác");
+                return;
+            }
+        }
+
+        // Kiểm tra định dạng họ và tên: chỉ chứa chữ cái và khoảng trắng
+        const nameRegex = /^[a-zA-ZÀ-ỿ\s]+$/;
+        if (!nameRegex.test(formData.studentName.trim())) {
+            setModalError("Họ và tên không đúng định dạng. Ví dụ: Hoàng Quang Vinh");
+            return;
+        }
+
+        // Kiểm tra độ dài họ và tên từ 8 đến 30 ký tự
+        if (formData.studentName.length < 8 || formData.studentName.length > 30) {
+            setModalError("Vui lòng nhập độ dài họ và tên nhỏ hơn 30 ký tự và tối thiểu 8 ký tự");
+            return;
+        }
+
+        // Kiểm tra định dạng tài khoản: sv + 4 số
+        if (formData.account) {
+            // Kiểm tra độ dài tài khoản không quá 30 ký tự
+            if (formData.account.length > 30) {
+                setModalError("Vui lòng nhập độ dài tài khoản nhỏ hơn 30 ký tự");
+                return;
+            }
+
+            const accountRegex = /^sv\d{4}$/;
+            if (!accountRegex.test(formData.account)) {
+                setModalError("Vui lòng nhập đúng định dạng sv + 4 số (Ví dụ sv2557)");
+                return;
+            }
+
+            // Kiểm tra tài khoản trùng lặp
+            if (!editingStudent) {
+                const duplicateAccount = students.some(s => s.account === formData.account);
+                if (duplicateAccount) {
+                    setModalError("Tài khoản đã tồn tại trong hệ thống. Vui lòng chọn tên tài khoản khác.");
+                    return;
+                }
+            } else {
+                const duplicateAccount = students.some(s => s.account === formData.account && s.id !== editingStudent.id);
+                if (duplicateAccount) {
+                    setModalError("Tài khoản đã tồn tại trong hệ thống. Vui lòng chọn tên tài khoản khác.");
+                    return;
+                }
+            }
+        }
+
+        // Kiểm tra định dạng email: SV + 4 số @e.tlu.edu.vn
+        if (formData.email) {
+            const emailRegex = /^SV\d{4}@e\.tlu\.edu\.vn$/;
+            if (!emailRegex.test(formData.email)) {
+                setModalError("Vui lòng nhập đúng định dạng email. Ví dụ: (SV + 4 số)@e.tlu.edu.vn");
+                return;
+            }
+
+            // Kiểm tra email trùng lặp
+            if (!editingStudent) {
+                const duplicateEmail = students.some(s => s.email === formData.email);
+                if (duplicateEmail) {
+                    setModalError("Email đã tồn tại trong hệ thống. Vui lòng sử dụng email khác.");
+                    return;
+                }
+            } else {
+                const duplicateEmail = students.some(s => s.email === formData.email && s.id !== editingStudent.id);
+                if (duplicateEmail) {
+                    setModalError("Email đã tồn tại trong hệ thống. Vui lòng sử dụng email khác.");
+                    return;
+                }
+            }
+        }
+
+        // Kiểm tra mật khẩu (chỉ khi thêm mới)
+        if (!editingStudent) {
+            if (!formData.password) {
+                setModalError("Vui lòng điền đầy đủ thông tin bắt buộc");
+                return;
+            }
+
+            // Kiểm tra độ dài mật khẩu từ 8 đến 30 ký tự
+            if (formData.password.length < 8 || formData.password.length > 30) {
+                setModalError("Vui lòng nhập độ dài mật khẩu nhỏ hơn 30 ký tự và tối thiểu 8 ký tự");
+                return;
+            }
+
+            // Kiểm tra mật khẩu có chứa khoảng trắng
+            if (/\s/.test(formData.password)) {
+                setModalError("Mật khẩu yêu cầu gồm số, chữ viết hoa, viết thường và ít nhất một ký tự đặc biệt");
+                return;
+            }
+
+            // Kiểm tra mật khẩu có đủ yêu cầu: số, chữ hoa, chữ thường, ký tự đặc biệt
+            const hasNumber = /\d/.test(formData.password);
+            const hasUppercase = /[A-Z]/.test(formData.password);
+            const hasLowercase = /[a-z]/.test(formData.password);
+            const hasSpecialChar = /[@#$!%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(formData.password);
+
+            if (!hasNumber || !hasUppercase || !hasLowercase || !hasSpecialChar) {
+                setModalError("Mật khẩu yêu cầu gồm số, chữ viết hoa, viết thường và ít nhất một ký tự đặc biệt");
+                return;
+            }
         }
 
         try {
