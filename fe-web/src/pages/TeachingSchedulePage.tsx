@@ -69,11 +69,11 @@ const TeachingSchedulePage = () => {
     return `${yyyy}-${mm}-${dd}`;
   }
 
-  const [date, setDate] = useState("2025-08-26");
+  const [date, setDate] = useState(getTodayString());
   const [scheduleData, setScheduleData] = useState<TeachingSchedule[]>([]);
   const [loading, setLoading] = useState(false);
   const [weekDates, setWeekDates] = useState<string[]>(
-    getWeekDates("2025-08-26")
+    getWeekDates(getTodayString())
   );
 
   function getWeekStringForInput(d: string): string {
