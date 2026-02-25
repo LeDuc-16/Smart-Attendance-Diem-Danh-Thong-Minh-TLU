@@ -169,7 +169,7 @@ const VerifyOTPPage = () => {
     };
 
     return (
-        <div className="bg-blue-200 flex justify-center items-center min-h-screen p-5">
+        <div className="bg-orange-200 flex justify-center items-center min-h-screen p-5">
             <div className="rounded flex shadow-xl overflow-hidden w-full max-w-3xl border border-gray-300">
                 <div className="w-2/3 p-5 bg-gray-50 justify-center flex flex-col">
                     <h1 className="text-2xl flex justify-center font-semibold mb-2">
@@ -200,7 +200,7 @@ const VerifyOTPPage = () => {
                                     value={otp}
                                     onChange={handleOtpChange}
                                     placeholder="Nhập mã OTP 6 số"
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-center text-base tracking-widest"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 text-center text-base tracking-widest"
                                     maxLength={6}
                                     disabled={isLoading || isResending || isSuccess}
                                 />
@@ -227,7 +227,7 @@ const VerifyOTPPage = () => {
                                     type="button"
                                     onClick={handleResendOTP}
                                     disabled={isResending || isLoading || countdown > 0 || isSuccess}
-                                    className="text-sm text-blue-600 hover:text-blue-800 underline disabled:opacity-50 block"
+                                    className="text-sm text-orange-600 hover:text-orange-800 underline disabled:opacity-50 block"
                                 >
                                     {countdown > 0 ? `Gửi lại sau ${countdown}s` :
                                         isResending ? "Đang gửi lại..." : "Gửi lại mã OTP"}
@@ -245,11 +245,11 @@ const VerifyOTPPage = () => {
                     )}
                 </div>
 
-                <div className="w-1/2 bg-blue-900 p-4 rounded h-150 justify-center flex flex-col text-white">
+                <div className="w-1/2 bg-orange-900 p-4 rounded h-150 justify-center flex flex-col text-white">
                     <img
-                        src="https://www.tlu.edu.vn/Portals/0/2014/Logo-WRU.png"
+                        src="/assets/images/fpt.png"
                         className="rounded-full object-cover mx-auto mb-4"
-                        alt="Logo TLU"
+                        alt="Logo FPT"
                     />
                     <h2 className="text-xl font-bold mb-2 text-center">
                         Xác thực OTP

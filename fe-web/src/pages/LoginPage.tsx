@@ -53,7 +53,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="bg-blue-200 flex justify-center items-center min-h-screen p-5">
+    <div className="bg-orange-200 flex justify-center items-center min-h-screen p-5">
       <div className="rounded flex shadow-xl overflow-hidden w-full max-w-3xl border border-gray-300">
         {/* Left side - Form */}
         <div className="w-2/3 p-5 bg-gray-50 justify-center flex flex-col">
@@ -82,7 +82,7 @@ const LoginPage = () => {
                 <input type="checkbox" className="form-checkbox" />
                 <span className="ml-2">Ghi nhớ tôi</span>
               </label>
-              <Link to="/forgot-password" className="text-sm text-blue-600 hover:underline">
+              <Link to="/forgot-password" className="text-sm text-orange-600 hover:underline">
                 Quên mật khẩu?
               </Link>
             </div>
@@ -101,11 +101,11 @@ const LoginPage = () => {
           </form>
         </div>
 
-        <div className="w-1/2 bg-blue-900 p-4 rounded h-150 justify-center flex flex-col text-white">
+        <div className="w-1/2 bg-orange-900 p-4 rounded h-150 justify-center flex flex-col text-white">
           <img
-            src="https://www.tlu.edu.vn/Portals/0/2014/Logo-WRU.png"
+            src="/assets/images/fpt.png"
             className="rounded-full object-cover mx-auto mb-4"
-            alt="Logo TLU"
+            alt="Logo FPT"
           />
           <h2 className="text-xl font-bold mb-2 text-center">
             Quản lý hệ thống điểm danh thông minh

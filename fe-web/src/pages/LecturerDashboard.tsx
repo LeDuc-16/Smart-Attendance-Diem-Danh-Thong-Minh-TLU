@@ -135,13 +135,13 @@ const LecturerDashboard = () => {
         <HeaderLecturer lecturerName="Kiều Tuấn Dũng" />
         <main className="p-8">
           <div className="mb-6">
-            <h1 className="text-2xl font-bold text-blue-700">Quản lý lịch giảng dạy và điểm danh sinh viên</h1>
-            <p className="text-sm text-gray-500">Trường Đại học Thủy Lợi - Hệ thống điểm danh</p>
+            <h1 className="text-2xl font-bold text-orange-700">Quản lý lịch giảng dạy và điểm danh sinh viên</h1>
+            <p className="text-sm text-gray-500">Trường Đại học FPT - Hệ thống điểm danh</p>
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="mb-4">
-                <h2 className="text-lg font-bold text-blue-700">Lịch học hôm nay</h2>
+                <h2 className="text-lg font-bold text-orange-700">Lịch học hôm nay</h2>
                 <p className="text-sm text-gray-500">{getTodayLabel()}</p>
             </div>
             <table className="w-full text-sm text-left">
@@ -167,7 +167,7 @@ const LecturerDashboard = () => {
                       {item.statusType === "active" ? (
                         <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">{item.status}</span>
                       ) : (
-                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">{item.status}</span>
+                        <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-medium">{item.status}</span>
                       )}
                     </td>
                   </tr>

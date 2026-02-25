@@ -156,15 +156,15 @@ const LecturerTakesAttendance = () => {
           {!attendanceMode ? (
             <>
               <div className="mb-6">
-                <h1 className="text-2xl font-bold text-blue-800">Điểm danh sinh viên</h1>
+                <h1 className="text-2xl font-bold text-orange-800">Điểm danh sinh viên</h1>
                 <p className="text-sm text-gray-500">
                   Khởi tạo và quản lý các buổi điểm danh bằng nhận diện khuôn mặt
                 </p>
               </div>
-              <div className="bg-white rounded-lg border border-blue-100 p-6">
+              <div className="bg-white rounded-lg border border-orange-100 p-6">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
                   <div>
-                    <h2 className="text-lg font-bold text-blue-800 mb-1">Quản lý điểm danh</h2>
+                    <h2 className="text-lg font-bold text-orange-800 mb-1">Quản lý điểm danh</h2>
                     <p className="text-sm text-gray-500">
                       Quản lý điểm danh ngày {new Date(date).toLocaleDateString("vi-VN")}
                     </p>
@@ -180,7 +180,7 @@ const LecturerTakesAttendance = () => {
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm text-left">
-                    <thead className="bg-blue-50 text-gray-600">
+                    <thead className="bg-orange-50 text-gray-600">
                       <tr>
                         <th className="py-3 px-4 font-semibold">Môn học</th>
                         <th className="py-3 px-4 font-semibold">Tên lớp</th>
@@ -205,14 +205,14 @@ const LecturerTakesAttendance = () => {
                                 {item.status}
                               </span>
                             ) : (
-                              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                              <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs font-medium">
                                 {item.status}
                               </span>
                             )}
                           </td>
                           <td className="py-3 px-4 text-center align-middle">
                             <div className="flex justify-center items-center h-full">
-                              <button className="flex items-center gap-2 px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700" onClick={() => handleStartAttendance(item.className, item.subject)}>
+                              <button className="flex items-center gap-2 px-4 py-2 rounded bg-orange-600 text-white hover:bg-orange-700" onClick={() => handleStartAttendance(item.className, item.subject)}>
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
@@ -228,13 +228,13 @@ const LecturerTakesAttendance = () => {
               </div>
             </>
           ) : (
-            <div className="bg-white rounded-lg border border-blue-100 p-6">
+            <div className="bg-white rounded-lg border border-orange-100 p-6">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-blue-800">Danh sách sinh viên</h2>
+                  <h2 className="text-2xl font-bold text-orange-800">Danh sách sinh viên</h2>
                   <p className="text-sm text-gray-500">Trạng thái sinh viên điểm danh lớp {selectedClass} - Môn {selectedSubject}</p>
                 </div>
-                <button className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700" onClick={() => setAttendanceMode(false)}>Quay lại</button>
+                <button className="px-4 py-2 rounded bg-orange-600 text-white hover:bg-orange-700" onClick={() => setAttendanceMode(false)}>Quay lại</button>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {studentList.slice((currentPage-1)*studentsPerPage, currentPage*studentsPerPage).map((stu) => (
@@ -256,7 +256,7 @@ const LecturerTakesAttendance = () => {
               <div className="flex justify-end items-center gap-2 mt-6">
                 <button className="px-2 py-1 border rounded" disabled={currentPage === 1} onClick={() => setCurrentPage(p => p-1)}>&lt; Trước</button>
                 {[...Array(Math.ceil(studentList.length/studentsPerPage)).keys()].map(i => (
-                  <button key={i} className={`px-3 py-1 border rounded ${currentPage === i+1 ? 'bg-blue-600 text-white' : ''}`} onClick={() => setCurrentPage(i+1)}>{i+1}</button>
+                  <button key={i} className={`px-3 py-1 border rounded ${currentPage === i+1 ? 'bg-orange-600 text-white' : ''}`} onClick={() => setCurrentPage(i+1)}>{i+1}</button>
                 ))}
                 <button className="px-2 py-1 border rounded" disabled={currentPage === Math.ceil(studentList.length/studentsPerPage)} onClick={() => setCurrentPage(p => p+1)}>Tiếp &gt;</button>
               </div>

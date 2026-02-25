@@ -80,7 +80,7 @@ const StudentCard = ({
         color: '#6b7280',
         fontSize: '12px',
         fontWeight: 'bold',
-        border: '4px solid #dbeafe'
+        border: '4px solid #ffedd5'
     };
 
     const getImageUrl = (avatarUrl: string) => {
@@ -95,7 +95,7 @@ const StudentCard = ({
                         <img
                             src={getImageUrl(student.avatar)}
                             alt={`${student.studentName} avatar`}
-                            className="w-20 h-20 rounded-full object-cover border-4 border-blue-100"
+                            className="w-20 h-20 rounded-full object-cover border-4 border-orange-100"
                             onError={(e) => {
                                 e.currentTarget.style.display = 'none';
                                 const placeholder = e.currentTarget.nextElementSibling as HTMLElement;
@@ -115,7 +115,7 @@ const StudentCard = ({
 
                     <button
                         onClick={onUpload}
-                        className="absolute bottom-0 right-0 bg-blue-600 text-white rounded-full p-1 hover:bg-blue-700 transition-colors"
+                        className="absolute bottom-0 right-0 bg-orange-600 text-white rounded-full p-1 hover:bg-orange-700 transition-colors"
                         title="Tải ảnh lên"
                     >
                         <FiUpload size={12} />
@@ -123,7 +123,7 @@ const StudentCard = ({
                 </div>
 
                 <div className="text-center mb-4">
-                    <h3 className="text-lg font-bold text-[#1E3A8A] mb-1">
+                    <h3 className="text-lg font-bold text-[#9A3412] mb-1">
                         {student.studentCode}
                     </h3>
                     <p className="text-gray-800 font-medium mb-1 line-clamp-1">
@@ -189,7 +189,7 @@ const StudentFormModal = ({
             <div className="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-start p-4">
                     <div>
-                        <h3 className="text-xl font-semibold text-[#1E3A8A]">
+                        <h3 className="text-xl font-semibold text-[#9A3412]">
                             {initialData ? 'Chỉnh sửa sinh viên' : 'Thêm mới'}
                         </h3>
                         <p className="text-sm text-gray-500 mt-1">
@@ -205,7 +205,7 @@ const StudentFormModal = ({
 
                 <form onSubmit={onSubmit}>
                     <div className="p-6">
-                        <div className="bg-blue-50 p-4 rounded-lg space-y-4">
+                        <div className="bg-orange-50 p-4 rounded-lg space-y-4">
                             <h4 className="font-semibold">Thông tin sinh viên</h4>
 
                             <div>
@@ -217,7 +217,7 @@ const StudentFormModal = ({
                                     name="studentCode"
                                     value={formData.studentCode}
                                     onChange={onFormChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     placeholder="Ví dụ: SV001"
                                 />
                             </div>
@@ -231,7 +231,7 @@ const StudentFormModal = ({
                                     name="studentName"
                                     value={formData.studentName}
                                     onChange={onFormChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     placeholder="Nhập họ và tên"
                                 />
                             </div>
@@ -244,7 +244,7 @@ const StudentFormModal = ({
                                     name="className"
                                     value={formData.className}
                                     onChange={onFormChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                 >
                                     <option value="">-- Chọn lớp --</option>
                                     {classes.map((classOption) => (
@@ -263,7 +263,7 @@ const StudentFormModal = ({
                                     name="facultyName"
                                     value={formData.facultyName}
                                     onChange={onFormChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                 >
                                     <option value="">-- Chọn khoa --</option>
                                     {faculties.map((faculty) => (
@@ -282,7 +282,7 @@ const StudentFormModal = ({
                                     name="majorName"
                                     value={formData.majorName}
                                     onChange={onFormChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     disabled={!formData.facultyName}
                                 >
                                     <option value="">
@@ -305,7 +305,7 @@ const StudentFormModal = ({
                                     name="account"
                                     value={formData.account}
                                     onChange={onFormChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     placeholder="Tên đăng nhập"
                                 />
                             </div>
@@ -319,7 +319,7 @@ const StudentFormModal = ({
                                     name="email"
                                     value={formData.email}
                                     onChange={onFormChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     placeholder="example@email.com"
                                 />
                             </div>
@@ -334,7 +334,7 @@ const StudentFormModal = ({
                                         name="password"
                                         value={formData.password || ""}
                                         onChange={onFormChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                         placeholder="Mật khẩu"
                                     />
                                 </div>
@@ -348,7 +348,7 @@ const StudentFormModal = ({
                     <div className="flex justify-end p-4">
                         <button
                             type="submit"
-                            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-semibold"
+                            className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 font-semibold"
                         >
                             {initialData ? 'Lưu thay đổi' : 'Thêm sinh viên mới'}
                         </button>
@@ -453,7 +453,7 @@ const ImportExcelModal = ({
             <div className="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-start p-4">
                     <div>
-                        <h3 className="text-xl font-semibold text-[#1E3A8A]">
+                        <h3 className="text-xl font-semibold text-[#9A3412]">
                             Import sinh viên từ Excel
                         </h3>
                         <p className="text-sm text-gray-500 mt-1">
@@ -479,7 +479,7 @@ const ImportExcelModal = ({
                                 accept=".xlsx,.xls"
                                 onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
                                 required
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                             />
                         </div>
                         <div>
@@ -490,7 +490,7 @@ const ImportExcelModal = ({
                                 value={selectedClass}
                                 onChange={(e) => setSelectedClass(e.target.value)}
                                 required
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                             >
                                 <option value="">-- Chọn lớp --</option>
                                 {classes.map((cls) => (
@@ -862,7 +862,7 @@ const StudentPage = () => {
                 key={i}
                 onClick={() => handlePageChange(i)}
                 className={`px-3 py-1 mx-1 rounded-md text-sm font-medium ${currentPage === i
-                        ? 'bg-blue-600 text-white'
+                        ? 'bg-orange-600 text-white'
                         : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
                     }`}
             >
@@ -937,11 +937,11 @@ const StudentPage = () => {
 
             <div className="space-y-6">
                 <div className="mb-6">
-                    <h1 className="text-2xl font-bold text-[#1E3A8A] mb-2">
+                    <h1 className="text-2xl font-bold text-[#9A3412] mb-2">
                         Quản lý sinh viên
                     </h1>
                     <p className="text-[#717182] text-xl">
-                        Quản lý thông tin sinh viên trong trường Đại học Thủy Lợi
+                        Quản lý thông tin sinh viên trong trường Đại học FPT
                     </p>
                 </div>
 
@@ -952,7 +952,7 @@ const StudentPage = () => {
                             placeholder="Tìm kiếm theo mã sinh viên, họ tên..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                         />
                         <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
                     </div>
@@ -968,7 +968,7 @@ const StudentPage = () => {
 
                         <button
                             onClick={openAddModal}
-                            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center font-semibold text-sm"
+                            className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 flex items-center font-semibold text-sm"
                         >
                             <FiPlus className="mr-2" /> Thêm sinh viên
                         </button>
@@ -977,14 +977,14 @@ const StudentPage = () => {
 
                 <div className="bg-white rounded-lg shadow-sm">
                     <div className="p-4 border-b border-gray-200">
-                        <h2 className="text-lg font-semibold text-[#1E3A8A]">
+                        <h2 className="text-lg font-semibold text-[#9A3412]">
                             Danh sách sinh viên
                         </h2>
                     </div>
 
                     {loading ? (
                         <div className="p-8 text-center">
-                            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600"></div>
                             <p className="text-gray-500 mt-2">Đang tải dữ liệu...</p>
                         </div>
                     ) : error ? (

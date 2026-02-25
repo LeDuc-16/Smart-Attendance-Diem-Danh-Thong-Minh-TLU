@@ -21,11 +21,11 @@ const LecturerReports = () => {
         <main className="flex-1 p-8 overflow-y-auto">
           {/* Title */}
           <div className="mb-6">
-            <h1 className="text-2xl font-bold text-blue-800">Báo cáo điểm danh sinh viên</h1>
+            <h1 className="text-2xl font-bold text-orange-800">Báo cáo điểm danh sinh viên</h1>
             <p className="text-sm text-gray-500">Thống kê các buổi điểm danh bằng nhận diện khuôn mặt</p>
           </div>
           {/* Bộ lọc báo cáo */}
-          <div className="bg-white rounded-lg border border-blue-100 p-6 mb-6 flex flex-col md:flex-row gap-4 items-center">
+          <div className="bg-white rounded-lg border border-orange-100 p-6 mb-6 flex flex-col md:flex-row gap-4 items-center">
             <select className="border rounded px-4 py-2 text-gray-700">
               <option>HKI 2024 - 2025</option>
             </select>
@@ -45,8 +45,8 @@ const LecturerReports = () => {
             </div>
           </div>
           {/* Hiệu suất điểm danh theo lớp */}
-          <div className="bg-white rounded-lg border border-blue-100 p-6">
-            <h2 className="text-lg font-bold text-blue-800 mb-2">Hiệu suất điểm danh theo lớp</h2>
+          <div className="bg-white rounded-lg border border-orange-100 p-6">
+            <h2 className="text-lg font-bold text-orange-800 mb-2">Hiệu suất điểm danh theo lớp</h2>
             <p className="text-sm text-gray-500 mb-4">Tổng quan tỷ lệ điểm danh của từng lớp học</p>
             <div className="space-y-3">
               {/* Card lớp */}

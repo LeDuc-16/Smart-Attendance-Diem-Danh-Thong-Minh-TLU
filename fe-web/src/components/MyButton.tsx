@@ -24,7 +24,7 @@ const MyButton = ({
       onClick={onClick}
       className={`w-full py-2 px-4 flex items-center justify-center rounded transition duration-200 text-white font-semibold ${isLoading || disabled
         ? "bg-gray-500 cursor-not-allowed"
-        : "bg-blue-900 hover:bg-blue-800"
+        : "bg-orange-900 hover:bg-orange-800"
         } ${className}`}
     >
       {isLoading && (

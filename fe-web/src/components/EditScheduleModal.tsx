@@ -31,7 +31,7 @@ const EditScheduleModal: React.FC<EditScheduleModalProps> = ({ show, data, onClo
             </svg>
           </button>
         </div>
-        <div className="mb-2 font-semibold text-blue-700">Thông tin lớp học bị nghỉ</div>
+        <div className="mb-2 font-semibold text-orange-700">Thông tin lớp học bị nghỉ</div>
         <form className="space-y-3">
           <div className="grid grid-cols-2 gap-3">
             <div>
@@ -65,7 +65,7 @@ const EditScheduleModal: React.FC<EditScheduleModalProps> = ({ show, data, onClo
           </div>
           <div className="flex justify-end gap-2 mt-2">
             <button type="button" className="px-4 py-2 rounded bg-gray-200 text-gray-700" onClick={onCancel}>Hủy</button>
-            <button type="submit" className="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 flex items-center gap-2">
+            <button type="submit" className="px-4 py-2 rounded-md bg-orange-600 text-white hover:bg-orange-700 flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transform rotate-45" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.428A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
               </svg>

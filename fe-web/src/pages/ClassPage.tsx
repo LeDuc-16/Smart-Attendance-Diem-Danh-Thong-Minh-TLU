@@ -84,7 +84,7 @@ const ClassFormModal = ({
             <div className="bg-white rounded-lg shadow-xl w-full max-w-md">
                 <div className="flex justify-between items-start p-4">
                     <div>
-                        <h3 className="text-xl font-semibold text-[#1E3A8A]">
+                        <h3 className="text-xl font-semibold text-[#9A3412]">
                             {initialData ? 'Chỉnh sửa lớp' : 'Thêm mới'}
                         </h3>
                         <p className="text-sm text-gray-500 mt-1">
@@ -99,7 +99,7 @@ const ClassFormModal = ({
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="p-6">
-                        <div className="bg-blue-50 p-4 rounded-lg space-y-4">
+                        <div className="bg-orange-50 p-4 rounded-lg space-y-4">
                             <h4 className="font-semibold">Thông tin lớp</h4>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -110,7 +110,7 @@ const ClassFormModal = ({
                                     name="className"
                                     value={formData.className}
                                     onChange={handleChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     placeholder="Nhập tên lớp"
                                 />
                             </div>
@@ -124,7 +124,7 @@ const ClassFormModal = ({
                                     value={formData.capacityStudent}
                                     onChange={handleChange}
                                     min="1"
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     placeholder="Nhập sức chứa"
                                 />
                             </div>
@@ -136,7 +136,7 @@ const ClassFormModal = ({
                     <div className="flex justify-end p-4">
                         <button
                             type="submit"
-                            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-semibold"
+                            className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 font-semibold"
                         >
                             {initialData ? 'Lưu thay đổi' : 'Thêm lớp mới'}
                         </button>
@@ -177,7 +177,7 @@ const SelectLecturerModal = ({
             <div className="bg-white rounded-lg shadow-xl w-full max-w-md">
                 <div className="flex justify-between items-start p-4">
                     <div>
-                        <h3 className="text-xl font-semibold text-[#1E3A8A]">
+                        <h3 className="text-xl font-semibold text-[#9A3412]">
                             Chọn giảng viên chủ nhiệm
                         </h3>
                         <p className="text-sm text-gray-500 mt-1">
@@ -190,7 +190,7 @@ const SelectLecturerModal = ({
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="p-6">
-                        <div className="bg-blue-50 p-4 rounded-lg space-y-4">
+                        <div className="bg-orange-50 p-4 rounded-lg space-y-4">
                             <h4 className="font-semibold">Danh sách giảng viên</h4>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -199,7 +199,7 @@ const SelectLecturerModal = ({
                                 <select
                                     value={selectedLecturerId}
                                     onChange={(e) => setSelectedLecturerId(Number(e.target.value))}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                 >
                                     <option value={0}>-- Chọn giảng viên --</option>
                                     {lecturers.map((lecturer) => (
@@ -221,7 +221,7 @@ const SelectLecturerModal = ({
                         </button>
                         <button
                             type="submit"
-                            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-semibold"
+                            className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 font-semibold"
                         >
                             Thêm giảng viên
                         </button>
@@ -587,7 +587,7 @@ const ClassPage = () => {
                 key={i}
                 onClick={() => handlePageChange(i)}
                 className={`px-3 py-1 mx-1 rounded-md text-sm font-medium ${currentPage === i
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-orange-600 text-white'
                     : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
                     }`}
             >
@@ -652,11 +652,11 @@ const ClassPage = () => {
 
             <div className="space-y-4">
                 <div className="mb-4">
-                    <h1 className="text-2xl font-bold text-[#1E3A8A] mb-2">
+                    <h1 className="text-2xl font-bold text-[#9A3412] mb-2">
                         Quản lý lớp học
                     </h1>
                     <p className="text-[#717182] text-xl">
-                        Quản lý thông tin các lớp học trong trường Đại học Thủy Lợi
+                        Quản lý thông tin các lớp học trong trường Đại học FPT
                     </p>
                 </div>
 
@@ -667,13 +667,13 @@ const ClassPage = () => {
                             placeholder="Tìm kiếm theo tên lớp..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                         />
                         <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
                     </div>
                     <button
                         onClick={openAddModal}
-                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center font-semibold text-sm"
+                        className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 flex items-center font-semibold text-sm"
                     >
                         <FiPlus className="mr-2" />
                         Thêm lớp
@@ -681,12 +681,12 @@ const ClassPage = () => {
                 </div>
 
                 <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                    <h2 className="text-lg font-semibold text-[#1E3A8A] p-4 border-b border-gray-200">
+                    <h2 className="text-lg font-semibold text-[#9A3412] p-4 border-b border-gray-200">
                         Danh sách lớp học
                     </h2>
                     {loading ? (
                         <div className="p-8 text-center">
-                            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600"></div>
                             <p className="text-gray-500 mt-2">Đang tải dữ liệu...</p>
                         </div>
                     ) : error ? (
@@ -699,7 +699,7 @@ const ClassPage = () => {
                             </div>
                             <button
                                 onClick={() => fetchClasses(currentPage, debouncedSearchTerm)}
-                                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+                                className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700"
                             >
                                 Thử lại
                             </button>

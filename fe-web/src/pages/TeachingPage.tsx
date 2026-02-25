@@ -290,7 +290,7 @@ const TeachingScheduleModal = ({
             <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-start p-4">
                     <div>
-                        <h3 className="text-xl font-semibold text-[#1E3A8A]">
+                        <h3 className="text-xl font-semibold text-[#9A3412]">
                             {initialData ? 'Chỉnh sửa lịch giảng dạy' : 'Thêm mới'}
                         </h3>
                         <p className="text-sm text-gray-500 mt-1">
@@ -305,7 +305,7 @@ const TeachingScheduleModal = ({
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="p-6">
-                        <div className="bg-blue-50 p-4 rounded-lg space-y-4">
+                        <div className="bg-orange-50 p-4 rounded-lg space-y-4">
                             <h4 className="font-semibold">Thông tin lịch giảng dạy</h4>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -318,7 +318,7 @@ const TeachingScheduleModal = ({
                                         name="startDate"
                                         value={formData.startDate}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     />
                                 </div>
 
@@ -332,7 +332,7 @@ const TeachingScheduleModal = ({
                                         value={formData.endDate}
                                         onChange={handleChange}
                                         min={formData.startDate}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     />
                                 </div>
 
@@ -347,7 +347,7 @@ const TeachingScheduleModal = ({
                                         onChange={handleChange}
                                         min="07:00"
                                         max="21:30"
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     />
                                     <p className="text-xs text-gray-500 mt-1">Chỉ trong khoảng 07:00 - 21:30</p>
                                 </div>
@@ -363,7 +363,7 @@ const TeachingScheduleModal = ({
                                         onChange={handleChange}
                                         min="07:00"
                                         max="21:30"
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     />
                                     <p className="text-xs text-gray-500 mt-1">Chỉ trong khoảng 07:00 - 21:30</p>
                                 </div>
@@ -376,7 +376,7 @@ const TeachingScheduleModal = ({
                                         name="courseId"
                                         value={formData.courseId}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     >
                                         <option value={0}>-- Chọn môn học --</option>
                                         {courses.map((course) => (
@@ -395,7 +395,7 @@ const TeachingScheduleModal = ({
                                         name="lecturerId"
                                         value={formData.lecturerId}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     >
                                         <option value={0}>-- Chọn giảng viên --</option>
                                         {lecturers.map((lecturer) => (
@@ -414,7 +414,7 @@ const TeachingScheduleModal = ({
                                         name="classId"
                                         value={formData.classId}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     >
                                         <option value={0}>-- Chọn lớp học --</option>
                                         {classes.map((classItem) => (
@@ -433,7 +433,7 @@ const TeachingScheduleModal = ({
                                         name="roomId"
                                         value={formData.roomId}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     >
                                         <option value={0}>-- Chọn phòng học --</option>
                                         {rooms.map((room) => (
@@ -456,7 +456,7 @@ const TeachingScheduleModal = ({
                                                 type="checkbox"
                                                 checked={formData.dayOfWeek.includes(day.value)}
                                                 onChange={() => handleDayOfWeekChange(day.value)}
-                                                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                                className="rounded border-gray-300 text-orange-600 focus:ring-orange-500"
                                             />
                                             <span className="text-sm">{day.label}</span>
                                         </label>
@@ -472,7 +472,7 @@ const TeachingScheduleModal = ({
                     <div className="flex justify-end p-4 border-t">
                         <button
                             type="submit"
-                            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-semibold"
+                            className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 font-semibold"
                         >
                             {initialData ? 'Lưu thay đổi' : 'Thêm lịch giảng dạy'}
                         </button>
@@ -758,7 +758,7 @@ const TeachingPage = () => {
                 key={i}
                 onClick={() => handlePageChange(i)}
                 className={`px-3 py-1 mx-1 rounded-md text-sm font-medium ${currentPage === i
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-orange-600 text-white'
                     : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
                     }`}
             >
@@ -896,7 +896,7 @@ const TeachingPage = () => {
 
             <div className="space-y-4">
                 <div className="mb-4">
-                    <h1 className="text-2xl font-bold text-[#1E3A8A] mb-2">
+                    <h1 className="text-2xl font-bold text-[#9A3412] mb-2">
                         Quản lý lịch giảng dạy
                     </h1>
                     <p className="text-[#717182] text-xl">
@@ -912,7 +912,7 @@ const TeachingPage = () => {
                                 placeholder="Tìm kiếm theo môn học, phòng, lớp học, ngày..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                             />
                             <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
                         </div>
@@ -922,7 +922,7 @@ const TeachingPage = () => {
                             <select
                                 value={selectedLecturerId || ''}
                                 onChange={(e) => setSelectedLecturerId(e.target.value ? Number(e.target.value) : null)}
-                                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[200px]"
+                                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[200px]"
                                 disabled={!dataLoaded}
                             >
                                 <option value="">{dataLoaded ? "-- Chọn giảng viên --" : "Đang tải..."}</option>
@@ -936,7 +936,7 @@ const TeachingPage = () => {
 
                         <button
                             onClick={openAddModal}
-                            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center font-semibold text-sm disabled:bg-gray-400"
+                            className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 flex items-center font-semibold text-sm disabled:bg-gray-400"
                             disabled={!dataLoaded}
                         >
                             <FiPlus className="mr-2" />
@@ -946,7 +946,7 @@ const TeachingPage = () => {
                 </div>
 
                 <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                    <h2 className="text-lg font-semibold text-[#1E3A8A] p-4 border-b border-gray-200">
+                    <h2 className="text-lg font-semibold text-[#9A3412] p-4 border-b border-gray-200">
                         {selectedLecturerId
                             ? `Lịch giảng dạy của ${lecturers.find(l => l.value === selectedLecturerId)?.label || 'giảng viên'}`
                             : 'Vui lòng chọn giảng viên để xem lịch giảng dạy'

@@ -26,10 +26,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, text, href }) => {
           const baseClasses = "flex items-center p-2 rounded-xl transition-colors duration-200 text-white border-2 border-[#CED4DA] mb-5";
 
           if (isActive) {
-            return `${baseClasses} bg-[#00509E]`;
+            return `${baseClasses} bg-[#C2410C]`;
           }
 
-          return `${baseClasses} hover:bg-blue-600`;
+          return `${baseClasses} hover:bg-orange-600`;
         }}
       >
         {renderIcon()}

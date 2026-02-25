@@ -25,8 +25,8 @@ const DashboardCard: React.FC<DashboardCardProps> = ({ icon: Icon, text, href })
     return (
         <Link
             to={href}
-            className="block bg-blue-500 rounded-lg shadow-md p-6 text-center text-white font-semibold 
-                       hover:bg-blue-600 transition-all duration-300 ease-in-out
+            className="block bg-orange-500 rounded-lg shadow-md p-6 text-center text-white font-semibold 
+                       hover:bg-orange-600 transition-all duration-300 ease-in-out
                        transform hover:-translate-y-1"
         >
             <div className="flex flex-col items-center justify-center h-full">

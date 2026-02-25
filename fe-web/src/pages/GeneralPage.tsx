@@ -19,11 +19,11 @@ const GeneralPage = () => {
   return (
     <div className="space-y-4">
       <div className="mb-4">
-        <h1 className="text-2xl font-bold text-[#1E3A8A] mb-2">
+        <h1 className="text-2xl font-bold text-[#9A3412] mb-2">
           Tổng quan hệ thống
         </h1>
         <p className="text-[#717182] text-xl">
-          Theo dõi và quản lý hoạt động điểm danh tại Trường Đại học Thủy Lợi
+          Theo dõi và quản lý hoạt động điểm danh tại Trường Đại học FPT
         </p>
       </div>
 

@@ -188,7 +188,7 @@ const TeachingSchedulePage = () => {
         <HeaderLecturer lecturerName="Kiều Tuấn Dũng" />
         <main className="flex-1 p-8 overflow-y-auto">
           <div className="mb-6">
-            <h1 className="text-2xl font-bold text-blue-700">Lịch giảng dạy</h1>
+            <h1 className="text-2xl font-bold text-orange-700">Lịch giảng dạy</h1>
             <p className="text-sm text-gray-500">
               Quản lý và theo dõi lịch giảng dạy một cách hiệu quả
             </p>
@@ -200,7 +200,7 @@ const TeachingSchedulePage = () => {
               <input
                 type="text"
                 placeholder="Tìm kiếm theo môn học, phòng học..."
-                className="w-full border rounded-lg px-4 py-2 pl-10 focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full border rounded-lg px-4 py-2 pl-10 focus:ring-2 focus:ring-orange-500 outline-none"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -223,7 +223,7 @@ const TeachingSchedulePage = () => {
             <div className="relative w-full md:w-auto flex gap-2 items-center">
               <input
                 type="week"
-                className="border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                className="border rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 outline-none"
                 value={getWeekStringForInput(date)}
                 onChange={(e) => {
                   // Lấy ngày đầu tuần từ input type="week" (YYYY-Wxx)
@@ -254,7 +254,7 @@ const TeachingSchedulePage = () => {
           {/* Schedule Table */}
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="mb-4">
-              <h2 className="text-lg font-bold text-blue-700">
+              <h2 className="text-lg font-bold text-orange-700">
                 Lịch giảng dạy
               </h2>
               <p className="text-sm text-gray-500">
@@ -270,7 +270,7 @@ const TeachingSchedulePage = () => {
             />
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left">
-                <thead className="bg-blue-50 text-gray-600">
+                <thead className="bg-orange-50 text-gray-600">
                   <tr>
                     <th className="py-3 px-4 font-semibold">Ngày</th>
                     <th className="py-3 px-4 font-semibold">Thứ</th>
@@ -376,7 +376,7 @@ const TeachingSchedulePage = () => {
                           </td>
                           <td className="py-3 px-4 text-center">
                             <button
-                              className="text-blue-600 hover:text-blue-800 p-2 rounded-full focus:outline-none transition-colors"
+                              className="text-orange-600 hover:text-orange-800 p-2 rounded-full focus:outline-none transition-colors"
                               title="Chỉnh sửa"
                               onClick={() => handleEditClick(item)}
                             >

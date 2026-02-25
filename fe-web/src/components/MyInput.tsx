@@ -36,7 +36,7 @@ const MyInput = ({
         value={value}
         onChange={onChange}
         disabled={disabled}  // ✅ BÂY GIỜ SẼ HOẠT ĐỘNG
-        className={`w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300 ${disabled ? 'opacity-50 cursor-not-allowed' : ''
+        className={`w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-orange-300 ${disabled ? 'opacity-50 cursor-not-allowed' : ''
           } ${className}`}
       />
     </div>

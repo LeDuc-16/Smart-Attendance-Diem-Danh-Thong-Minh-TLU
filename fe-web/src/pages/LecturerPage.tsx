@@ -122,7 +122,7 @@ const LecturerFormModal = ({
             <div className="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-start p-4">
                     <div>
-                        <h3 className="text-xl font-semibold text-[#1E3A8A]">
+                        <h3 className="text-xl font-semibold text-[#9A3412]">
                             {initialData ? 'Chỉnh sửa giảng viên' : 'Thêm mới'}
                         </h3>
                         <p className="text-sm text-gray-500 mt-1">
@@ -137,7 +137,7 @@ const LecturerFormModal = ({
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="p-6">
-                        <div className="bg-blue-50 p-4 rounded-lg space-y-4">
+                        <div className="bg-orange-50 p-4 rounded-lg space-y-4">
                             <h4 className="font-semibold">Thông tin giảng viên</h4>
 
                             <div>
@@ -149,7 +149,7 @@ const LecturerFormModal = ({
                                     name="lecturerCode"
                                     value={formData.lecturerCode}
                                     onChange={handleChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     placeholder="Ví dụ: GV001"
                                 />
                             </div>
@@ -163,7 +163,7 @@ const LecturerFormModal = ({
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                     placeholder="Nhập họ và tên"
                                 />
                             </div>
@@ -176,7 +176,7 @@ const LecturerFormModal = ({
                                     name="academicRank"
                                     value={formData.academicRank}
                                     onChange={handleChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                 >
                                     <option value="">-- Chọn học hàm/học vị --</option>
                                     {academicRanks.map((rank) => (
@@ -195,7 +195,7 @@ const LecturerFormModal = ({
                                     name="facultyId"
                                     value={formData.facultyId}
                                     onChange={handleChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                 >
                                     <option value={0}>-- Chọn khoa --</option>
                                     {faculties.map((f) => (
@@ -217,7 +217,7 @@ const LecturerFormModal = ({
                                             name="account"
                                             value={formData.account}
                                             onChange={handleChange}
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                             placeholder="Tên đăng nhập"
                                         />
                                     </div>
@@ -231,7 +231,7 @@ const LecturerFormModal = ({
                                             name="email"
                                             value={formData.email}
                                             onChange={handleChange}
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                             placeholder="example@email.com"
                                         />
                                     </div>
@@ -245,7 +245,7 @@ const LecturerFormModal = ({
                                             name="password"
                                             value={formData.password}
                                             onChange={handleChange}
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
                                             placeholder="Mật khẩu"
                                         />
                                     </div>
@@ -258,7 +258,7 @@ const LecturerFormModal = ({
                         </div>
                     </div>
                     <div className="flex justify-end p-4">
-                        <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-semibold">
+                        <button type="submit" className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 font-semibold">
                             {initialData ? 'Lưu thay đổi' : 'Thêm giảng viên mới'}
                         </button>
                     </div>
@@ -537,7 +537,7 @@ const LecturerPage = () => {
                 key={i}
                 onClick={() => handlePageChange(i)}
                 className={`px-3 py-1 mx-1 rounded-md text-sm font-medium ${currentPage === i
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-orange-600 text-white'
                     : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
                     }`}
             >
@@ -603,11 +603,11 @@ const LecturerPage = () => {
 
             <div className="space-y-4">
                 <div className="mb-4">
-                    <h1 className="text-2xl font-bold text-[#1E3A8A] mb-2">
+                    <h1 className="text-2xl font-bold text-[#9A3412] mb-2">
                         Quản lý giảng viên
                     </h1>
                     <p className="text-[#717182] text-xl">
-                        Quản lý thông tin các giảng viên trong trường Đại học Thủy Lợi
+                        Quản lý thông tin các giảng viên trong trường Đại học FPT
                     </p>
                 </div>
 
@@ -618,20 +618,20 @@ const LecturerPage = () => {
                             placeholder="Tìm kiếm theo mã giảng viên hoặc tên..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                         />
                         <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
                     </div>
                     <button
                         onClick={openAddModal}
-                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center font-semibold text-sm"
+                        className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 flex items-center font-semibold text-sm"
                     >
                         <FiPlus className="mr-2" /> Thêm giảng viên
                     </button>
                 </div>
 
                 <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                    <h2 className="text-lg font-semibold text-[#1E3A8A] p-4 border-b border-gray-200">
+                    <h2 className="text-lg font-semibold text-[#9A3412] p-4 border-b border-gray-200">
                         Danh sách giảng viên
                     </h2>
                     {loading ? (
